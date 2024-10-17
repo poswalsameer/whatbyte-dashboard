@@ -60,7 +60,7 @@ export default function SkillTestDashboard() {
         
         {/* Main content */}
         <main className=" flex-1 p-4 md:p-8 overflow-y-auto">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mt-2 mb-8">
             <h2 className="text-xl font-semibold">Skill Test</h2>
           </div>
 

@@ -25,7 +25,9 @@ interface incomingProps{
 
 function TestUpdate(props : incomingProps) {
   return (
-    <div className="flex border-2 rounded-md p-6 space-x-4 items-center justify-between mb-4">
+    <div className="
+      flex flex-col border-2 rounded-md p-4 space-y-4 items-center justify-between mb-4
+      sm:flex sm:flex-row sm:border-2 sm:rounded-md sm:p-6 sm:space-x-4 sm:items-center sm:justify-between sm:mb-4">
                   <div className="flex items-center space-x-2">
                     <img
                       src="./html5.png"
@@ -33,10 +35,10 @@ function TestUpdate(props : incomingProps) {
                       className="w-12 h-12"
                     />
                     <div>
-                      <h3 className="md:text-base xl:text-lg font-semibold">
+                      <h3 className="text-sm sm:text-base xl:text-lg font-semibold">
                         Hyper Text Markup Language
                       </h3>
-                      <p className=" md:text-xs lg:text-sm xl:text-md text-gray-700">
+                      <p className=" text-xs sm:text-xs lg:text-sm xl:text-md text-gray-700">
                         Questions: 08 | Duration: 15 mins | Submitted on 5 June
                         2021
                       </p>
@@ -48,18 +50,18 @@ function TestUpdate(props : incomingProps) {
                     onOpenChange={props.setIsUpdateModalOpen}
                   >
                     <DialogTrigger asChild>
-                      <Button className="md:h-10 md:w-24 xl:h-12 xl:w-32 bg-blue-950 hover:bg-blue-900 font-bold">
+                      <Button className="h-9 w-20 sm:h-10 sm:w-24 xl:h-12 xl:w-32 bg-blue-950 hover:bg-blue-900 font-bold">
                         Update
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[600px]">
+                    <DialogContent className="max-w-[300px] rounded-md sm:max-w-[600px]">
                       <DialogHeader className='my-3'>
-                        <DialogTitle className='text-2xl'>Update Scores</DialogTitle>
+                        <DialogTitle className='text-lg sm:text-2xl'>Update Scores</DialogTitle>
                       </DialogHeader>
                       <form onSubmit={props.handleUpdateStats} className="space-y-4">
 
                         <div className="flex justify-center items-center space-x-5">
-                          <Label htmlFor="rank" className='w-[50%] font-bold'>Update your Rank: </Label>
+                          <Label htmlFor="rank" className='w-[50%] font-bold '>Update your Rank: </Label>
                           <Input
                             id="rank"
                             type="number"
