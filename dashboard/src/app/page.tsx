@@ -66,7 +66,7 @@ export default function SkillTestDashboard() {
 
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
-              {/* HTML Test Section */}
+             
               <div className="bg-white p-6 rounded-lg shadow mb-8">
                 {/* FIRST BLOCK */}
                 <TestUpdate 

@@ -25,43 +25,41 @@ interface incomingProps{
 
 function TestUpdate(props : incomingProps) {
   return (
-    <div className="flex border-2 rounded-md p-6 items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
+    <div className="flex border-2 rounded-md p-6 space-x-4 items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2">
                     <img
                       src="./html5.png"
                       alt="HTML5 Logo"
                       className="w-12 h-12"
                     />
                     <div>
-                      <h3 className="text-lg font-semibold">
+                      <h3 className="md:text-base xl:text-lg font-semibold">
                         Hyper Text Markup Language
                       </h3>
-                      <p className="text-md text-gray-700">
+                      <p className=" md:text-xs lg:text-sm xl:text-md text-gray-700">
                         Questions: 08 | Duration: 15 mins | Submitted on 5 June
                         2021
                       </p>
                     </div>
                   </div>
+
                   <Dialog
                     open={props.isUpdateModalOpen}
                     onOpenChange={props.setIsUpdateModalOpen}
                   >
                     <DialogTrigger asChild>
-                      <Button className="h-12 w-32 bg-blue-950 hover:bg-blue-900 font-bold">
+                      <Button className="md:h-10 md:w-24 xl:h-12 xl:w-32 bg-blue-950 hover:bg-blue-900 font-bold">
                         Update
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px]">
-                      <DialogHeader>
-                        <DialogTitle>Update Statistics</DialogTitle>
-                        <DialogDescription>
-                          Update your rank, percentile, and correct answers
-                          here. Click save when you're done.
-                        </DialogDescription>
+                    <DialogContent className="sm:max-w-[600px]">
+                      <DialogHeader className='my-3'>
+                        <DialogTitle className='text-2xl'>Update Scores</DialogTitle>
                       </DialogHeader>
                       <form onSubmit={props.handleUpdateStats} className="space-y-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="rank">Rank</Label>
+
+                        <div className="flex justify-center items-center space-x-5">
+                          <Label htmlFor="rank" className='w-[50%] font-bold'>Update your Rank: </Label>
                           <Input
                             id="rank"
                             type="number"
@@ -70,10 +68,12 @@ function TestUpdate(props : incomingProps) {
                               props.setRank(Math.max(1, parseInt(e.target.value)))
                             }
                             min="1"
+                            className='w-[50%] focus:outline-none focus:border-2 focus:border-blue-700 border border-gray-300'
                           />
                         </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="percentile">Percentile</Label>
+
+                        <div className="flex justify-center items-center space-x-5">
+                          <Label htmlFor="percentile" className='w-[50%] font-bold'>Update your Percentile: </Label>
                           <Input
                             id="percentile"
                             type="number"
@@ -88,11 +88,12 @@ function TestUpdate(props : incomingProps) {
                             }
                             min="0"
                             max="100"
+                            className='w-[50%] font-bold focus:outline-none focus:border-2 focus:border-blue-700 border border-gray-300'
                           />
                         </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="correctAnswers">
-                            Correct Answers
+                        <div className="flex justify-center items-center space-x-5">
+                          <Label htmlFor="correctAnswers" className='w-[50%] font-bold'>
+                            Update your current score:
                           </Label>
                           <Input
                             id="correctAnswers"
@@ -108,12 +109,14 @@ function TestUpdate(props : incomingProps) {
                             }
                             min="0"
                             max="15"
+                            className='w-[50%] font-bold focus:outline-none focus:border-2 focus:border-blue-700 border border-gray-300'
                           />
                         </div>
-                        <Button type="submit">Save changes</Button>
+                        <Button type="submit" className='font-bold bg-blue-950 hover:bg-blue-900'>Save changes</Button>
                       </form>
                     </DialogContent>
                   </Dialog>
+
                 </div>
   )
 }

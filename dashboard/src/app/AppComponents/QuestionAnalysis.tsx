@@ -19,7 +19,21 @@ function QuestionAnalysis( props : incomingProps ) {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex flex-col gap-y-4 items-center justify-center mb-4">
+
+                  {
+                    props.correctAnswers === 15 ? (
+                      <div className='font-bold text-sm'>
+                        You scored {props.correctAnswers} questions correct out of 15. Keep it up!!
+                      </div>
+                    ) : 
+                    (
+                      <div className='font-bold text-sm'>
+                          You scored {props.correctAnswers} questions correct out of 15. However, it still needs some improvement.
+                      </div>
+                    )
+                  }
+
                   <div className="w-48 h-48">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
