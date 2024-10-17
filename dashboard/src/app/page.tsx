@@ -35,16 +35,20 @@ const comparisonData = [
 ];
 
 export default function SkillTestDashboard() {
+
+  // ALL THE STATES USED IN THE APPLICATION ARE HERE
   const [rank, setRank] = useState(1);
   const [percentile, setPercentile] = useState(30);
   const [correctAnswers, setCorrectAnswers] = useState(10);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
+  // ALL FUNCTIONS USED IN THE APPLIACATION ARE HERE
   const handleUpdateStats = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsUpdateModalOpen(false);
   };
 
+  // CONSTANTS ARE HERE
   const questionAnalysisData = [
     { name: "Correct", value: correctAnswers },
     { name: "Incorrect", value: 15 - correctAnswers },
@@ -56,19 +60,21 @@ export default function SkillTestDashboard() {
       <Header />
 
       <div className="flex flex-1 overflow-hidden">
+
         <Sidebar />
-        
-        {/* Main content */}
+
         <main className=" flex-1 p-4 md:p-8 overflow-y-auto">
+
           <div className="flex justify-between items-center mt-2 mb-8">
-            <h2 className="text-xl font-semibold">Skill Test</h2>
+            <h2 className="text-xl font-semibold">
+              Skill Test
+            </h2>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
              
               <div className="bg-white p-6 rounded-lg shadow mb-8">
-                {/* FIRST BLOCK */}
                 <TestUpdate 
                   isUpdateModalOpen={isUpdateModalOpen} 
                   setIsUpdateModalOpen={setIsUpdateModalOpen}
@@ -81,14 +87,13 @@ export default function SkillTestDashboard() {
                   setCorrectAnswers={setCorrectAnswers}
                 />
 
-                {/* Quick Statistics */}
                 <QuickStats 
                   rank={rank}
                   percentile={percentile}
                   correctAnswers={correctAnswers}
                 />
 
-                {/* Line Graph */}
+                
                 <BarGraph 
                   percentile={percentile}
                   comparisonData={comparisonData}
@@ -98,19 +103,22 @@ export default function SkillTestDashboard() {
             </div>
 
             <div className="lg:w-1/3 space-y-8">
-              {/* Syllabus Wise Analysis */}
+              
               <SyllabusAnalysis />
 
-              {/* Question Analysis */}
               <QuestionAnalysis 
                 correctAnswers={correctAnswers}
                 questionAnalysisData={questionAnalysisData}
-                />
+              />
 
             </div>
           </div>
+
         </main>
+
       </div>
+
     </div>
+    
   );
 }
